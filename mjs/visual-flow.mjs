@@ -1,35 +1,20 @@
 /**
- * Generates dynamic N-step CSS-animated visuals for any topic.
+ * Builds step sequences for GSAP topic visuals.
  */
-
-import { generateVisualStyles, stepMarker } from './visual-keyframes.mjs';
-import { buildBallVisual } from './visual-ball.mjs';
-
-function esc(s) {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
-
-function escCode(s) {
-  return esc(s);
-}
 
 function clip(s, max = 72) {
   const t = String(s).replace(/\s+/g, ' ').trim();
   return t.length <= max ? t : `${t.slice(0, max - 1)}…`;
 }
 
-const TAG_PRIORITY = [
+export const TAG_PRIORITY = [
   'oop', 'collections', 'generics', 'concurrency', 'functional', 'modern', 'reactive',
   'io', 'web', 'framework', 'database', 'jvm', 'performance', 'architecture', 'security',
   'testing', 'devops', 'cloud', 'error-handling', 'debugging', 'tools', 'setup', 'syntax',
   'api', 'professional', 'best-practices', 'overview',
 ];
 
-function primaryTag(tags = []) {
+export function primaryTag(tags = []) {
   for (const t of TAG_PRIORITY) {
     if (tags.includes(t)) return t;
   }
@@ -37,7 +22,7 @@ function primaryTag(tags = []) {
 }
 
 /** @type {Record<string, { icon: string, legend: string, scenes: { label: string, detail: string, icon?: string }[] }>} */
-const TEMPLATES = {
+export const TEMPLATES = {
   overview: {
     icon: '💡',
     legend: 'Programming = precise instructions + data + control flow',
@@ -505,7 +490,7 @@ function extractSyntaxLines(code) {
 /**
  * @returns {{ label: string, detail: string, code: string, icon: string }[]}
  */
-function buildSteps(topic, content) {
+export function buildSteps(topic, content) {
   const tag = primaryTag(topic.tags);
   const tmpl = TEMPLATES[tag] || TEMPLATES.overview;
   const steps = [];
@@ -581,101 +566,4 @@ function buildSteps(topic, content) {
   }
 
   return steps;
-}
-
-function stepCaption(step, i) {
-  const marker = stepMarker(i);
-  const codePart = step.code.startsWith('//')
-    ? ''
-    : ` — <code>${escCode(clip(step.code.replace(/\n/g, ' '), 52))}</code>`;
-  return `${marker} <strong>${esc(step.label)}</strong>${codePart} · ${esc(step.detail)}`;
-}
-
-/**
- * @param {{ id: string, title: string, tags?: string[], description?: string }} topic
- * @param {{ definition?: string, syntax?: { label?: string, code: string }[] }} content
- */
-export function buildFlowVisual(topic, content) {
-  const tag = primaryTag(topic.tags);
-  const tmpl = TEMPLATES[tag] || TEMPLATES.overview;
-  const steps = buildSteps(topic, content);
-  const n = steps.length;
-  const { className, css, cycleSec } = generateVisualStyles(topic.id, n);
-
-  const diagramParts = [];
-  steps.forEach((s, i) => {
-    diagramParts.push(`<div class="vf-step vf-step-${i}">
-      <div class="vf-step-icon">${s.icon}</div>
-      <div class="vf-step-num">${i + 1}</div>
-      <div class="vf-step-label">${esc(s.label)}</div>
-      <div class="vf-step-detail">${esc(s.detail)}</div>
-    </div>`);
-    if (i < n - 1) {
-      diagramParts.push(`<div class="vf-connector vf-conn-${i}" aria-hidden="true">→</div>`);
-    }
-  });
-
-  const codeStrip = steps
-    .map((s, i) => {
-      const ln = s.code;
-      return `<div class="visual-code-line vf-cl vf-cl-${i}"><span class="visual-ln">${i + 1}</span><code>${escCode(ln)}</code></div>`;
-    })
-    .join('');
-
-  const capHtml = steps.map((s, i) => `<span class="visual-caption vf-cap vf-cap-${i}">${stepCaption(s, i)}</span>`).join('');
-
-  const chipHtml = steps
-    .map((s) => `<span class="vf-chip" title="${esc(s.detail)}">${esc(s.label)}</span>`)
-    .join('');
-
-  const gradient = steps
-    .map((_, i) => {
-      const colors = ['#3b82f6', '#0d9488', '#7c3aed', '#ea580c', '#db2777', '#0891b2'];
-      return colors[i % colors.length];
-    })
-    .join(', ');
-
-  const subBase = `vis-sub-${topic.id}`;
-  const walkId = `${subBase}-walk`;
-  const ballId = `${subBase}-ball`;
-  const ballHtml = buildBallVisual(topic, steps, cycleSec);
-
-  const walkthroughPanel = `<div class="visual-stage visual-flow-stage visual-animated-stage ${className}" style="--visual-cycle: ${cycleSec}s; --step-count: ${n}" data-visual-steps="${n}" data-visual-cycle="${cycleSec}" data-visual-mode="walk" aria-label="${esc(topic.title)} walkthrough">
-    <div class="visual-caption-bar">${capHtml}</div>
-    <div class="visual-flow-grid">
-      <div class="vf-diagram vf-diagram-scroll">${diagramParts.join('')}</div>
-      <div class="visual-flow-aside">
-        <div class="visual-code-strip visual-code-scroll">${codeStrip}</div>
-      </div>
-    </div>
-    <div class="visual-chips-wrap"><div class="vf-chips vf-chips-panel">${chipHtml}</div></div>
-  </div>
-  <div class="visual-legend">
-    <div class="visual-legend-item"><span class="visual-legend-swatch vf-swatch-flow" style="background: linear-gradient(90deg, ${gradient})"></span>${esc(tmpl.legend)}</div>
-  </div>`;
-
-  return `<div class="visual-wrap visual-flow" data-topic-id="${esc(topic.id)}">
-  <style>${css}</style>
-  <div class="visual-header">
-    <p class="visual-intro"><strong>${esc(topic.title)}</strong> · <span class="visual-step-count">${n} steps</span> · ${cycleSec}s per loop</p>
-    <div class="visual-toolbar">
-      <button type="button" class="visual-ctrl-btn visual-toggle-play" aria-label="Pause animation" aria-pressed="false">
-        <span class="visual-icon-pause" aria-hidden="true">⏸</span>
-        <span class="visual-icon-play" aria-hidden="true" hidden>▶</span>
-        <span class="visual-btn-text">Pause</span>
-      </button>
-      <span class="visual-step-status">Step <strong class="visual-step-current">1</strong> of ${n}</span>
-    </div>
-  </div>
-  <div class="visual-subtabs">
-    <input type="radio" name="${subBase}" id="${walkId}" class="visual-sub-radio" checked />
-    <input type="radio" name="${subBase}" id="${ballId}" class="visual-sub-radio" />
-    <nav class="visual-sub-nav" role="tablist" aria-label="Visual modes">
-      <label for="${walkId}" class="visual-sub-btn" role="tab"><span class="tab-label-long">Walkthrough</span><span class="tab-label-short">Walk</span></label>
-      <label for="${ballId}" class="visual-sub-btn" role="tab"><span class="tab-label-long">Data Journey</span><span class="tab-label-short">Journey</span></label>
-    </nav>
-    <div class="visual-sub-panel visual-sub-walk" role="tabpanel">${walkthroughPanel}</div>
-    <div class="visual-sub-panel visual-sub-ball" role="tabpanel">${ballHtml}</div>
-  </div>
-</div>`;
 }

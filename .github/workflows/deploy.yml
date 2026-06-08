@@ -28,7 +28,7 @@ jobs:
           mkdir -p _site/js
           cp index.html java.html 404.html favicon.svg _site/
           cp -r css _site/
-          cp js/visual-scroll.js _site/js/
+          cp js/visual-premium.js _site/js/
           touch _site/.nojekyll
 
       - name: Deploy to gh-pages branch

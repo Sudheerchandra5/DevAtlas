@@ -1,18 +1,4 @@
 export default {
-  "what-is-programming": {
-    definition: "Programming is the craft of translating human intentions into precise sequences of instructions that a machine can execute. It blends logical decomposition, data manipulation, and tool orchestration so abstract requirements become deterministic outcomes. Every program is also an artifact that must be tested, documented, and tuned for maintainability.",
-    syntax: [
-      { label: "Concept sketch", code: "for (Task task : plan) {\n    task.define();\n    task.implement();\n    task.verify();\n}" },
-      { label: "Java snippet", code: "int sum = 0;\nfor (int value : values) {\n    sum += value;\n}\nSystem.out.println(sum);" }
-    ],
-    interview: [
-      { question: "What is programming at a conceptual level?", answer: "Programming is the practice of describing data transformations and control flows so the JVM can complete work in response to inputs. It requires a mental model of the problem domain plus a disciplined approach to writing operations that match that model." },
-      { question: "Why should developers treat programming as a collaborative craft?", answer: "Collaborative programming relies on shared conventions, modular components, and clear documentation so teammates can follow the logic. Treating it as a craft also means embracing code reviews, tests, and iteration to improve resilience." },
-      { question: "How does a Java method showcase programming fundamentals?", answer: "A Java method like `public static void main(String[] args)` demonstrates sequencing, branching, and side effects because the JVM invokes it and each statement must follow syntax rules, e.g. `System.out.println(\"Ready\");`. Communicating intent through method names and parameters proves you can frame the problem for the compiler.", syntax: "public class Flow {\n    public static void main(String[] args) {\n        System.out.println(\"Ready\");\n    }\n}" },
-      { question: "What are common misconceptions about programming?", answer: "Newcomers often think programming is typing random commands, but it actually requires designing a predictable workflow that handles success, failure, and edge cases. It also requires dependency management, testing, and understanding of the runtime environment." },
-      { question: "How does programming relate to problem solving?", answer: "Programming is the codified version of problem solving because you identify inputs, expected outputs, and the transformations in between before committing them to code. Tools like debuggers and unit tests simply help you validate that the implementation matches the solution model." }
-    ]
-  },
   "what-is-java": {
     definition: "Java is a class-based, object-oriented language that compiles source code to JVM bytecode for cross-platform execution. It emphasizes a managed runtime with automatic memory management, a strong static type system, and a standardized core library. The language prioritizes backward compatibility so developers can rely on stable APIs and gradual enhancements.",
     syntax: [

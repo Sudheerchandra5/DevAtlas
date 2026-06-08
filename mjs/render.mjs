@@ -1,6 +1,8 @@
 import { enrichInterview } from './interview.mjs';
 import { enrichCodingTests } from './coding-test.mjs';
 import { getTopicVisual } from './topic-visuals.mjs';
+import { buildDefinitionView } from './definition-format.mjs';
+import { enrichMetaphor } from './metaphor.mjs';
 
 const SECTION_META = {
   'core-java': { range: 'Fundamentals to professional core' },
@@ -17,6 +19,55 @@ function esc(s) {
 
 function escCode(s) {
   return esc(s).replace(/^\s+/gm, (m) => m);
+}
+
+function renderDefinitionPanel(topic, content) {
+  const { quick, points, deepDive } = buildDefinitionView(topic, content);
+
+  const bullets =
+    points.length > 0
+      ? `<ul class="definition-points">${points.map((p) => `<li>${esc(p)}</li>`).join('')}</ul>`
+      : '';
+
+  const deep =
+    deepDive
+      ? `<details class="definition-more">
+      <summary>Full definition</summary>
+      <p class="definition-deep">${esc(deepDive)}</p>
+    </details>`
+      : '';
+
+  return `<div class="definition-card">
+    <p class="definition-quick">${esc(quick)}</p>
+    ${bullets ? `<div class="definition-section"><span class="definition-label">Key points</span>${bullets}</div>` : ''}
+    ${deep}
+  </div>`;
+}
+
+function renderMetaphorPanel(metaphor) {
+  if (!metaphor) {
+    return '<p class="tab-empty">A metaphor for this topic is being prepared.</p>';
+  }
+
+  const rows = metaphor.mapping
+    .map(
+      (row) => `<div class="metaphor-map-row">
+      <span class="metaphor-map-code">${esc(row.code)}</span>
+      <span class="metaphor-map-arrow" aria-hidden="true">→</span>
+      <span class="metaphor-map-real">${esc(row.real)}</span>
+    </div>`,
+    )
+    .join('');
+
+  return `<div class="metaphor-card">
+    <p class="metaphor-hook">${esc(metaphor.hook)}</p>
+    <p class="metaphor-story">${esc(metaphor.story)}</p>
+    <div class="metaphor-section">
+      <span class="metaphor-label">How it maps</span>
+      <div class="metaphor-map">${rows}</div>
+    </div>
+    <p class="metaphor-reminder"><strong>Remember:</strong> ${esc(metaphor.reminder)}</p>
+  </div>`;
 }
 
 function renderSyntaxPanel(syntaxList) {
@@ -104,6 +155,7 @@ function renderTopicTabs(topic, content) {
   const base = `tab-${topic.id}`;
   const defId = `${base}-def`;
   const synId = `${base}-syn`;
+  const metId = `${base}-met`;
   const visId = `${base}-vis`;
   const intId = `${base}-int`;
   const codId = `${base}-cod`;
@@ -111,21 +163,26 @@ function renderTopicTabs(topic, content) {
   return `<div class="topic-tabs">
     <input type="radio" name="${base}" id="${defId}" class="tab-radio" checked />
     <input type="radio" name="${base}" id="${synId}" class="tab-radio" />
+    <input type="radio" name="${base}" id="${metId}" class="tab-radio" />
     <input type="radio" name="${base}" id="${visId}" class="tab-radio" />
     <input type="radio" name="${base}" id="${intId}" class="tab-radio" />
     <input type="radio" name="${base}" id="${codId}" class="tab-radio" />
     <nav class="tab-nav" role="tablist" aria-label="Topic sections">
       <label for="${defId}" class="tab-btn" role="tab"><span class="tab-label-long">Definition</span><span class="tab-label-short">Def</span></label>
       <label for="${synId}" class="tab-btn" role="tab"><span class="tab-label-long">Syntax &amp; Examples</span><span class="tab-label-short">Syntax</span></label>
+      <label for="${metId}" class="tab-btn" role="tab"><span class="tab-label-long">Metaphor</span><span class="tab-label-short">Meta</span></label>
       <label for="${visId}" class="tab-btn" role="tab"><span class="tab-label-long">Visuals</span><span class="tab-label-short">Visual</span></label>
       <label for="${intId}" class="tab-btn" role="tab"><span class="tab-label-long">Interview Questions</span><span class="tab-label-short">Interview</span></label>
       <label for="${codId}" class="tab-btn" role="tab"><span class="tab-label-long">Coding Test</span><span class="tab-label-short">Code</span></label>
     </nav>
     <div class="tab-panel tab-panel-def" role="tabpanel">
-      <p class="definition-text">${esc(content.definition)}</p>
+      ${renderDefinitionPanel(topic, content)}
     </div>
     <div class="tab-panel tab-panel-syn" role="tabpanel">
       ${renderSyntaxPanel(content.syntax)}
+    </div>
+    <div class="tab-panel tab-panel-met" role="tabpanel">
+      ${renderMetaphorPanel(content.metaphor)}
     </div>
     <div class="tab-panel tab-panel-vis" role="tabpanel">
       ${getTopicVisual(topic, content)}
@@ -177,14 +234,10 @@ function header(active) {
 }
 
 function footer(opts = {}) {
-  const script = opts.visualScript ? '\n  <script src="js/visual-scroll.js" defer></script>' : '';
+  const script = opts.visualScript
+    ? '\n  <script src="js/visual-premium.js" defer></script>'
+    : '';
   return `    </main>
-    <footer class="footer">
-      <div class="footer-inner">
-        <span class="footer-brand">DevAtlas</span>
-        <p>Structured Java learning — Core Java &amp; Advanced Java — free for everyone</p>
-      </div>
-    </footer>
   </div>${script}
 </body>
 </html>`;
@@ -214,15 +267,18 @@ export function createSiteRenderer(topicContent, data) {
   function getTopicContent(topic) {
     const content = topicContent[topic.id];
     if (!content) {
+      const fallback = { definition: topic.description, syntax: [], interview: [] };
       return {
         definition: topic.description,
         syntax: [],
-        interview: enrichInterview(topic, { definition: topic.description, syntax: [], interview: [] }),
-        codingTest: enrichCodingTests(topic, { definition: topic.description, syntax: [], interview: [] }),
+        metaphor: enrichMetaphor(topic, fallback),
+        interview: enrichInterview(topic, { ...fallback, interview: [] }),
+        codingTest: enrichCodingTests(topic, { ...fallback, interview: [] }),
       };
     }
     return {
       ...content,
+      metaphor: enrichMetaphor(topic, content),
       interview: enrichInterview(topic, content),
       codingTest: enrichCodingTests(topic, content),
     };
@@ -336,7 +392,6 @@ ${footer()}`;
 
   function renderJava() {
     const java = data.languages.find((l) => l.id === 'java');
-    const totalTopics = java.sections.reduce((s, sec) => s + sectionTopicCount(sec), 0);
 
     const levelNav = java.sections
       .map(
@@ -349,7 +404,6 @@ ${footer()}`;
 
     const sections = java.sections
       .map((sec) => {
-        const secCount = sectionTopicCount(sec);
         const groups = sec.groups
           .map((group, groupIdx) => {
             const startNum = stepIndex + 1;
@@ -376,59 +430,18 @@ ${footer()}`;
           .join('');
 
         return `<section id="${sec.id}" class="level-section section-${sec.id}">
-        <div class="level-header">
-          <span class="level-badge level-${sec.id}">${sec.title}</span>
-          <div>
-            <h2>${sec.title}</h2>
-            <p>${esc(sec.description)}</p>
-          </div>
-          <span class="level-topic-count">${secCount} topics · ${sec.groups.length} modules</span>
-        </div>
         ${groups}
       </section>`;
       })
       .join('');
 
-    const pathNodes = java.sections
-      .map((sec, i) => {
-        const arrow = i < java.sections.length - 1 ? '<span class="path-arrow">→</span>' : '';
-        return `<span class="path-node level-${sec.id}">${sec.title} (${sectionTopicCount(sec)})</span>${arrow}`;
-      })
-      .join('');
-
-    const coreCount = sectionTopicCount(java.sections.find((s) => s.id === 'core-java'));
-
     return `${header('java')}
-      <section class="lang-hero">
-        <div class="container">
-          <a href="index.html" class="back-link">← Back to home</a>
-          <div class="lang-hero-grid">
-            <div class="lang-icon-wrap">${java.icon}</div>
-            <div>
-              <div class="lang-title-row">
-                <h1>Java</h1>
-                <span class="version-badge">${java.currentVersion}</span>
-              </div>
-              <div class="lang-stats">
-                <span class="lang-stat-chip"><strong>${totalTopics}</strong> topics</span>
-                <span class="lang-stat-chip level-core-java"><strong>${coreCount}</strong> Core Java</span>
-                <span class="lang-stat-chip level-advanced-java"><strong>${totalTopics - coreCount}</strong> Advanced Java</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <nav class="level-nav">
         <div class="level-nav-inner">${levelNav}</div>
       </nav>
 
       <div class="container page-content">
         ${sections}
-        <div class="path-banner">
-          <h2>Recommended path: Core Java → Advanced Java</h2>
-          <div class="path-flow">${pathNodes}</div>
-        </div>
       </div>
 ${footer({ visualScript: true })}`;
   }

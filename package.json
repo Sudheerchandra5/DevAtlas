@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node mjs/generate.mjs"
+    "build": "node mjs/generate.mjs",
+    "test": "node mjs/test-visuals.mjs"
   }
 }

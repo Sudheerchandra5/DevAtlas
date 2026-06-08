@@ -1,6 +1,6 @@
 # DevAtlas
 
-Java learning platform — static HTML/CSS, Node build scripts, one browser script.
+Java learning platform — static HTML/CSS, Node build scripts, GSAP visuals.
 
 ## Live site
 
@@ -14,14 +14,14 @@ css/style.css
 data/languages.json
 
 js/
-  visual-scroll.js          Browser only (Visuals pause/scroll)
+  visual-premium.js         GSAP animation player (browser)
 
-mjs/                        All build modules (flat, single folder)
+mjs/                        Build modules
   generate.mjs              Entry — npm run build
   render.mjs, paths.mjs
   java-topics.mjs, core-part1.mjs … gaps.mjs
   interview.mjs, coding-test.mjs, puzzles.mjs
-  topic-visuals.mjs, visual-flow.mjs, visual-ball.mjs, visual-keyframes.mjs
+  topic-visuals.mjs, gsap-visual.mjs, visual-flow.mjs
 ```
 
 ## Build & run

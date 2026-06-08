@@ -3,7 +3,7 @@
     {
       "id": "java",
       "name": "Java",
-      "tagline": "Core Java → Advanced Java. 121 concepts — professional path, honest coverage.",
+      "tagline": "Core Java → Advanced Java. 120 concepts — professional path, honest coverage.",
       "description": "The global one-stop Java roadmap split into Core Java and Advanced Java. Core Java takes you from your first semicolon through OOP, collections, generics, and professional fundamentals. Advanced Java covers modern language features, concurrency, JVM internals, frameworks, and production systems. Free for every developer worldwide — JDK 21 LTS.",
       "icon": "☕",
       "color": "#f89820",
@@ -20,12 +20,6 @@
               "title": "Getting Started",
               "description": "Micro concepts — no prior coding experience required",
               "topics": [
-                {
-                  "id": "what-is-programming",
-                  "title": "What is Programming?",
-                  "description": "How computers execute instructions, what a programming language does, and why Java powers banks, Android, Minecraft, and enterprise systems globally.",
-                  "tags": ["overview"]
-                },
                 {
                   "id": "what-is-java",
                   "title": "What is Java?",
