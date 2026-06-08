@@ -3,508 +3,872 @@
     {
       "id": "java",
       "name": "Java",
-      "tagline": "Write once, run anywhere",
-      "description": "Master Java from your first Hello World to JVM tuning and cloud-native architecture. Covers JDK 21 LTS features including virtual threads, records, pattern matching, and the modern Spring ecosystem.",
+      "tagline": "Core Java → Advanced Java. 121 concepts — professional path, honest coverage.",
+      "description": "The global one-stop Java roadmap split into Core Java and Advanced Java. Core Java takes you from your first semicolon through OOP, collections, generics, and professional fundamentals. Advanced Java covers modern language features, concurrency, JVM internals, frameworks, and production systems. Free for every developer worldwide — JDK 21 LTS.",
       "icon": "☕",
       "color": "#f89820",
-      "gradient": "from-orange-500/20 via-amber-500/10 to-red-500/20",
       "currentVersion": "JDK 21 LTS",
       "available": true,
       "sections": [
         {
-          "id": "beginner",
-          "title": "Beginner",
-          "description": "Foundations — start here with zero prior experience",
-          "topics": [
+          "id": "core-java",
+          "title": "Core Java",
+          "description": "Language fundamentals every Java developer must know — from absolute zero through OOP, collections, I/O, and professional-grade core skills used in production code daily.",
+          "groups": [
             {
-              "id": "what-is-java",
-              "title": "What is Java?",
-              "description": "History, platform independence, JVM/JRE/JDK explained, and where Java is used today (Android, enterprise, cloud, big data).",
-              "tags": [
-                "overview"
-              ]
-            },
-            {
-              "id": "setup-environment",
-              "title": "Setting Up Your Environment",
-              "description": "Install JDK 21 LTS, configure JAVA_HOME, choose an IDE (IntelliJ IDEA, VS Code, Eclipse), and run your first program.",
-              "tags": [
-                "setup",
-                "tools"
-              ]
-            },
-            {
-              "id": "hello-world",
-              "title": "Hello World & Program Structure",
-              "description": "main method, class structure, compilation (javac) vs execution (java), and understanding the entry point.",
-              "tags": [
-                "syntax"
+              "id": "getting-started",
+              "title": "Getting Started",
+              "description": "Micro concepts — no prior coding experience required",
+              "topics": [
+                {
+                  "id": "what-is-programming",
+                  "title": "What is Programming?",
+                  "description": "How computers execute instructions, what a programming language does, and why Java powers banks, Android, Minecraft, and enterprise systems globally.",
+                  "tags": ["overview"]
+                },
+                {
+                  "id": "what-is-java",
+                  "title": "What is Java?",
+                  "description": "History, WORA philosophy, JVM/JRE/JDK explained, bytecode, and where Java is used today across industries.",
+                  "tags": ["overview"]
+                },
+                {
+                  "id": "setup-environment",
+                  "title": "Setting Up Your Environment",
+                  "description": "Install JDK 21 LTS, configure JAVA_HOME and PATH, choose an IDE (IntelliJ, VS Code, Eclipse), and run your first program.",
+                  "tags": ["setup", "tools"]
+                },
+                {
+                  "id": "hello-world",
+                  "title": "Hello World & Program Structure",
+                  "description": "main method, class structure, package declaration, compilation (javac) vs execution (java), and the program entry point.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "comments-docs",
+                  "title": "Comments & Documentation",
+                  "description": "Single-line, multi-line, and Javadoc comments. Writing self-documenting, maintainable code.",
+                  "tags": ["best-practices"]
+                },
+                {
+                  "id": "syntax-rules",
+                  "title": "Syntax Rules: Semicolons, Braces & Blocks",
+                  "description": "Statements vs expressions, semicolons, curly braces, code blocks, and the syntax errors every beginner encounters.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "naming-conventions",
+                  "title": "Naming Variables & Code Conventions",
+                  "description": "camelCase, PascalCase, UPPER_SNAKE_CASE, meaningful names, and Java naming standards used in professional teams.",
+                  "tags": ["syntax", "best-practices"]
+                }
               ]
             },
             {
               "id": "variables-types",
               "title": "Variables & Data Types",
-              "description": "Primitive types (int, double, boolean, char), reference types, var keyword (local type inference), literals, and type casting.",
-              "tags": [
-                "syntax"
-              ]
-            },
-            {
-              "id": "operators",
-              "title": "Operators & Expressions",
-              "description": "Arithmetic, relational, logical, bitwise, assignment, ternary operator, and operator precedence.",
-              "tags": [
-                "syntax"
+              "description": "Every data type and variable rule — from primitives to wrappers",
+              "topics": [
+                {
+                  "id": "variables-types",
+                  "title": "Variables & Data Types",
+                  "description": "Primitive types (byte, short, int, long, float, double, boolean, char), reference types, default values, and the var keyword.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "constants-final",
+                  "title": "Constants & the final Keyword",
+                  "description": "final variables, final parameters, final fields, static final constants, and immutability basics.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "operators",
+                  "title": "Operators & Expressions",
+                  "description": "Arithmetic, relational, logical, bitwise, assignment, ternary, instanceof, and operator precedence.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "type-casting",
+                  "title": "Type Conversion & Casting",
+                  "description": "Widening vs narrowing conversions, implicit promotion, explicit casts, overflow, and safe conversion patterns.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "variable-scope",
+                  "title": "Scope: Where Variables Live",
+                  "description": "Local, instance, and class scope, block scope, shadowing, and variable lifetime.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "unicode-char",
+                  "title": "char, byte & Unicode Basics",
+                  "description": "ASCII vs Unicode, char literals, escape sequences, UTF-8, and why String is not char[].",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "wrapper-classes",
+                  "title": "Wrapper Classes & Autoboxing",
+                  "description": "Integer, Double, Boolean wrappers, autoboxing/unboxing, valueOf vs new, and NullPointerException traps.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "bigdecimal",
+                  "title": "BigDecimal & Precision Arithmetic",
+                  "description": "Why float/double fail for money, BigDecimal creation, scale, rounding modes, and financial calculations.",
+                  "tags": ["syntax", "professional"]
+                }
               ]
             },
             {
               "id": "control-flow",
-              "title": "Control Flow",
-              "description": "if/else, switch statements and switch expressions (Java 14+), and best practices for branching logic.",
-              "tags": [
-                "syntax"
-              ],
-              "javaVersion": "14+"
-            },
-            {
-              "id": "loops",
-              "title": "Loops",
-              "description": "for, enhanced for-each, while, do-while loops, break/continue, and nested loops.",
-              "tags": [
-                "syntax"
+              "title": "Control Flow & Methods",
+              "description": "Logic, loops, arrays, strings, and reusable methods",
+              "topics": [
+                {
+                  "id": "control-flow",
+                  "title": "Control Flow",
+                  "description": "if/else, switch statements and switch expressions, pattern-free branching, and clean conditional logic.",
+                  "tags": ["syntax"],
+                  "javaVersion": "14+"
+                },
+                {
+                  "id": "loops",
+                  "title": "Loops",
+                  "description": "for, enhanced for-each, while, do-while, break/continue, labeled break, and nested loops.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "arrays",
+                  "title": "Arrays",
+                  "description": "Declaration, initialization, multi-dimensional arrays, length, copying, sorting, and the Arrays utility class.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "methods",
+                  "title": "Methods & Functions",
+                  "description": "Declaration, parameters, return types, overloading, varargs, recursion basics, and pass-by-value semantics.",
+                  "tags": ["syntax"]
+                },
+                {
+                  "id": "strings",
+                  "title": "Strings & Text",
+                  "description": "String creation, immutability, concatenation, text blocks, formatting, and essential String methods.",
+                  "tags": ["syntax"],
+                  "javaVersion": "15+"
+                },
+                {
+                  "id": "string-pool",
+                  "title": "String Pool & Immutability Deep Dive",
+                  "description": "String interning, == vs equals for strings, StringBuilder vs StringBuffer, and memory implications.",
+                  "tags": ["syntax", "professional"]
+                },
+                {
+                  "id": "input-output",
+                  "title": "Basic Input & Output",
+                  "description": "Scanner class, System.out formatting, printf, reading user input, and console-based programs.",
+                  "tags": ["io"]
+                },
+                {
+                  "id": "reading-errors",
+                  "title": "Reading Error Messages & Debugging",
+                  "description": "Compile-time vs runtime errors, stack traces, NullPointerException, ArrayIndexOutOfBounds, and IDE debugging.",
+                  "tags": ["debugging"]
+                },
+                {
+                  "id": "regex",
+                  "title": "Regular Expressions (Pattern & Matcher)",
+                  "description": "Pattern.compile, Matcher groups, common regex patterns, String.matches, and input validation.",
+                  "tags": ["syntax", "professional"]
+                }
               ]
             },
             {
-              "id": "arrays",
-              "title": "Arrays",
-              "description": "Single and multi-dimensional arrays, array initialization, common operations, and Arrays utility class.",
-              "tags": [
-                "syntax"
+              "id": "oop",
+              "title": "Object-Oriented Programming",
+              "description": "Classes, objects, and the four pillars — beginner to professional OOP",
+              "topics": [
+                {
+                  "id": "oop-intro",
+                  "title": "Introduction to OOP",
+                  "description": "Classes, objects, fields, methods, constructors, this keyword, and the four pillars of OOP.",
+                  "tags": ["oop"]
+                },
+                {
+                  "id": "encapsulation",
+                  "title": "Encapsulation & Access Modifiers",
+                  "description": "private, public, protected, package-private. Getters/setters, immutability, and data hiding.",
+                  "tags": ["oop"]
+                },
+                {
+                  "id": "inheritance",
+                  "title": "Inheritance",
+                  "description": "extends keyword, method overriding, super keyword, Object class, and composition vs inheritance.",
+                  "tags": ["oop"]
+                },
+                {
+                  "id": "polymorphism",
+                  "title": "Polymorphism",
+                  "description": "Runtime polymorphism, upcasting/downcasting, instanceof, and dynamic method dispatch.",
+                  "tags": ["oop"]
+                },
+                {
+                  "id": "abstraction",
+                  "title": "Abstraction",
+                  "description": "Abstract classes vs interfaces, abstract methods, and designing clean, focused APIs.",
+                  "tags": ["oop"]
+                },
+                {
+                  "id": "interfaces",
+                  "title": "Interfaces & Functional Interfaces",
+                  "description": "Interface contracts, default/static methods, multiple inheritance, sealed interfaces, and @FunctionalInterface.",
+                  "tags": ["oop"],
+                  "javaVersion": "17+"
+                },
+                {
+                  "id": "enums",
+                  "title": "Enums",
+                  "description": "Type-safe constants, enum methods, fields/constructors in enums, EnumSet, and EnumMap.",
+                  "tags": ["oop"]
+                },
+                {
+                  "id": "static-nested",
+                  "title": "Static, Nested & Inner Classes",
+                  "description": "Static fields/methods/blocks, static nested classes, inner classes, anonymous classes, and local classes.",
+                  "tags": ["oop"]
+                },
+                {
+                  "id": "object-class",
+                  "title": "Object Class: equals, hashCode & toString",
+                  "description": "Contract between equals and hashCode, overriding toString, clone(), and using Objects.equals in production.",
+                  "tags": ["oop", "professional"]
+                }
               ]
             },
             {
-              "id": "strings",
-              "title": "Strings & Text",
-              "description": "String immutability, StringBuilder/StringBuffer, text blocks (Java 15+), formatting, and common String methods.",
-              "tags": [
-                "syntax"
-              ],
-              "javaVersion": "15+"
-            },
-            {
-              "id": "methods",
-              "title": "Methods & Functions",
-              "description": "Method declaration, parameters, return types, method overloading, varargs, and pass-by-value semantics.",
-              "tags": [
-                "syntax"
+              "id": "collections-generics",
+              "title": "Collections & Generics",
+              "description": "Data structures and type-safe programming — core professional skills",
+              "topics": [
+                {
+                  "id": "collections",
+                  "title": "Collections Framework Overview",
+                  "description": "Collection hierarchy, List, Set, Map, Queue interfaces, and choosing the right collection for the job.",
+                  "tags": ["collections"]
+                },
+                {
+                  "id": "iterable-iterator",
+                  "title": "Iterable, Iterator & Enhanced for-each",
+                  "description": "Iterator contract, fail-fast vs fail-safe, Iterable interface, and how enhanced for-each desugars.",
+                  "tags": ["collections"]
+                },
+                {
+                  "id": "list-implementations",
+                  "title": "List Implementations Deep Dive",
+                  "description": "ArrayList vs LinkedList internals, time complexity, Vector, CopyOnWriteArrayList, and when to use each.",
+                  "tags": ["collections", "professional"]
+                },
+                {
+                  "id": "map-set-internals",
+                  "title": "Map & Set Internals",
+                  "description": "HashMap buckets and load factor, TreeMap ordering, HashSet, LinkedHashSet, ConcurrentHashMap basics.",
+                  "tags": ["collections", "professional"]
+                },
+                {
+                  "id": "comparable-comparator",
+                  "title": "Comparable & Comparator",
+                  "description": "Natural ordering vs custom comparators, Comparator.comparing, chaining, and sorting in production.",
+                  "tags": ["collections", "professional"]
+                },
+                {
+                  "id": "generics-basics",
+                  "title": "Generics Basics",
+                  "description": "Generic classes, methods, bounded type parameters, wildcards (? extends, ? super), and type erasure.",
+                  "tags": ["generics"]
+                },
+                {
+                  "id": "queue-deque",
+                  "title": "Queue, Deque & PriorityQueue",
+                  "description": "Queue and Deque interfaces, ArrayDeque, PriorityQueue, and when to use each for scheduling and BFS-style processing.",
+                  "tags": ["collections"]
+                },
+                {
+                  "id": "concurrent-collections",
+                  "title": "Concurrent Collections Overview",
+                  "description": "ConcurrentHashMap, CopyOnWriteArrayList, ConcurrentLinkedQueue, and thread-safe collection trade-offs.",
+                  "tags": ["collections", "concurrency"]
+                },
+                {
+                  "id": "generics-erasure",
+                  "title": "Generics Erasure & Bridge Methods",
+                  "description": "How the compiler erases generics, bridge methods, limitations with primitives and reflection, and type tokens.",
+                  "tags": ["generics", "professional"]
+                }
               ]
             },
             {
-              "id": "input-output",
-              "title": "Basic Input & Output",
-              "description": "Scanner class, System.out formatting, reading user input, and basic console-based programs.",
-              "tags": [
-                "io"
+              "id": "io-packages",
+              "title": "I/O, Time & Packages",
+              "description": "Files, serialization, dates, and project organization",
+              "topics": [
+                {
+                  "id": "exception-handling",
+                  "title": "Exception Handling",
+                  "description": "try/catch/finally, checked vs unchecked exceptions, custom exceptions, try-with-resources, and best practices.",
+                  "tags": ["error-handling"]
+                },
+                {
+                  "id": "file-io",
+                  "title": "File I/O",
+                  "description": "File class, BufferedReader/Writer, try-with-resources, NIO.2 Path and Files API, and reading/writing files.",
+                  "tags": ["io"]
+                },
+                {
+                  "id": "serialization",
+                  "title": "Serialization & Deserialization",
+                  "description": "Serializable interface, serialVersionUID, transient fields, ObjectInputStream/ObjectOutputStream, and security concerns.",
+                  "tags": ["io", "professional"]
+                },
+                {
+                  "id": "date-time",
+                  "title": "Date & Time API",
+                  "description": "java.time: LocalDate, LocalTime, LocalDateTime, ZonedDateTime, Instant, Duration, Period, and DateTimeFormatter.",
+                  "tags": ["api"]
+                },
+                {
+                  "id": "packages-modules",
+                  "title": "Packages & Module Basics",
+                  "description": "Package declaration, imports, static imports, classpath, JAR files, and JPMS introduction.",
+                  "tags": ["architecture"]
+                },
+                {
+                  "id": "classpath-jar",
+                  "title": "Classpath, JARs & Dependencies",
+                  "description": "How the JVM finds classes, building JARs, manifest files, fat JARs, and dependency resolution basics.",
+                  "tags": ["tools", "professional"]
+                },
+                {
+                  "id": "objects-utility",
+                  "title": "java.util.Objects & Utilities",
+                  "description": "Objects.requireNonNull, Objects.equals/hash, Collections utility methods, and defensive programming patterns.",
+                  "tags": ["professional"]
+                },
+                {
+                  "id": "networking-httpclient",
+                  "title": "Networking & HttpClient",
+                  "description": "java.net sockets, Java 11+ HttpClient, REST calls, timeouts, and connection management.",
+                  "tags": ["io", "web"]
+                },
+                {
+                  "id": "json-jackson",
+                  "title": "JSON Processing with Jackson",
+                  "description": "Serializing and deserializing JSON with Jackson ObjectMapper, annotations, and common configuration pitfalls.",
+                  "tags": ["io", "web"]
+                }
               ]
             },
             {
-              "id": "comments-docs",
-              "title": "Comments & Documentation",
-              "description": "Single-line, multi-line, and Javadoc comments. Writing self-documenting code.",
-              "tags": [
-                "best-practices"
+              "id": "core-concurrency",
+              "title": "Core Concurrency Utilities",
+              "description": "Essential java.util.concurrent primitives every Java developer must know before advanced concurrency",
+              "topics": [
+                {
+                  "id": "locks-reentrant",
+                  "title": "ReentrantLock & ReadWriteLock",
+                  "description": "Explicit locks, tryLock, fairness, and read/write locks as alternatives to synchronized.",
+                  "tags": ["concurrency"]
+                },
+                {
+                  "id": "synchronizers",
+                  "title": "Synchronizers (Latch, Barrier, Semaphore)",
+                  "description": "CountDownLatch, CyclicBarrier, Semaphore, and Phaser for coordinating threads.",
+                  "tags": ["concurrency"]
+                },
+                {
+                  "id": "atomic-classes",
+                  "title": "Atomic Classes & CAS",
+                  "description": "AtomicInteger, AtomicReference, compare-and-set, and lock-free counter patterns.",
+                  "tags": ["concurrency"]
+                },
+                {
+                  "id": "blocking-queue",
+                  "title": "BlockingQueue & Producer-Consumer",
+                  "description": "ArrayBlockingQueue, LinkedBlockingQueue, put/take semantics, and thread pool work queues.",
+                  "tags": ["concurrency", "collections"]
+                }
+              ]
+            },
+            {
+              "id": "professional-core",
+              "title": "Professional Core Java",
+              "description": "Annotations, testing, i18n, and habits of production Java developers",
+              "topics": [
+                {
+                  "id": "annotations",
+                  "title": "Annotations Overview",
+                  "description": "Built-in annotations (@Override, @Deprecated, @SuppressWarnings), defining custom annotations, and retention policies.",
+                  "tags": ["professional"]
+                },
+                {
+                  "id": "junit-basics",
+                  "title": "Unit Testing with JUnit 5",
+                  "description": "@Test, assertions, @BeforeEach/@AfterEach, @ParameterizedTest, mocking introduction, and TDD basics.",
+                  "tags": ["testing"]
+                },
+                {
+                  "id": "properties-i18n",
+                  "title": "Properties Files & Resource Bundles",
+                  "description": "Properties class, ResourceBundle, locale-aware applications, and internationalization fundamentals.",
+                  "tags": ["professional"]
+                },
+                {
+                  "id": "core-best-practices",
+                  "title": "Professional Core Java Practices",
+                  "description": "Effective Java principles, avoiding common pitfalls, immutability patterns, null safety habits, and readable code standards.",
+                  "tags": ["best-practices", "professional"]
+                },
+                {
+                  "id": "reflection-api",
+                  "title": "Reflection API",
+                  "description": "Inspecting classes, methods, and fields at runtime; how Spring, JUnit, and Hibernate use reflection.",
+                  "tags": ["professional"]
+                },
+                {
+                  "id": "mockito-testing",
+                  "title": "Mockito & Test Doubles",
+                  "description": "Mocks, stubs, verifications, argument captors, and isolating units under test with Mockito.",
+                  "tags": ["testing"]
+                },
+                {
+                  "id": "var-keyword",
+                  "title": "var & Local Type Inference",
+                  "description": "Using var for local variables and try-with-resources while keeping code readable and statically typed.",
+                  "tags": ["syntax", "modern"],
+                  "javaVersion": "10+"
+                },
+                {
+                  "id": "auto-closeable",
+                  "title": "AutoCloseable & try-with-resources",
+                  "description": "Resource management pattern for files, JDBC, and sockets; suppressing exceptions and custom closeable types.",
+                  "tags": ["io", "professional"]
+                },
+                {
+                  "id": "spi-serviceloader",
+                  "title": "SPI & ServiceLoader",
+                  "description": "Service Provider Interface pattern, META-INF/services, and pluggable implementations in the JDK ecosystem.",
+                  "tags": ["architecture", "professional"]
+                },
+                {
+                  "id": "assertions",
+                  "title": "Assertions",
+                  "description": "assert keyword, enabling with -ea, and when assertions complement exceptions.",
+                  "tags": ["syntax", "debugging"]
+                }
+              ]
+            },
+            {
+              "id": "oop-deep",
+              "title": "OOP Deep Dive",
+              "description": "Subtle object-oriented behavior that separates intermediate from professional developers",
+              "topics": [
+                {
+                  "id": "initialization-order",
+                  "title": "Class Initialization Order",
+                  "description": "Static blocks, field initialization order, constructor chaining, and inheritance initialization pitfalls.",
+                  "tags": ["oop"]
+                }
               ]
             }
           ]
         },
         {
-          "id": "intermediate",
-          "title": "Intermediate",
-          "description": "Core concepts — build real-world applications",
-          "topics": [
+          "id": "advanced-java",
+          "title": "Advanced Java",
+          "description": "Modern language features, concurrency, JVM mastery, frameworks, and production systems — from first lambda to senior engineer level.",
+          "groups": [
             {
-              "id": "oop-intro",
-              "title": "Introduction to OOP",
-              "description": "Classes, objects, fields, methods, constructors, this keyword, and the four pillars of OOP.",
-              "tags": [
-                "oop"
+              "id": "modern-language",
+              "title": "Modern Java Language",
+              "description": "JDK 8–21 features that define professional Java today",
+              "topics": [
+                {
+                  "id": "lambda-expressions",
+                  "title": "Lambda Expressions",
+                  "description": "Functional programming in Java, lambda syntax, variable capture, and when to use lambdas over anonymous classes.",
+                  "tags": ["functional"]
+                },
+                {
+                  "id": "method-references",
+                  "title": "Method References",
+                  "description": "Static, instance, and constructor references. BiFunction patterns and cleaner stream pipelines.",
+                  "tags": ["functional"]
+                },
+                {
+                  "id": "stream-api",
+                  "title": "Stream API Fundamentals",
+                  "description": "Creating streams, intermediate operations (map, filter, flatMap), terminal operations, and lazy evaluation.",
+                  "tags": ["functional"]
+                },
+                {
+                  "id": "stream-advanced",
+                  "title": "Stream API Advanced: Collectors & Grouping",
+                  "description": "Collectors.toMap, groupingBy, partitioningBy, reducing, teeing, and custom collectors for complex aggregations.",
+                  "tags": ["functional", "professional"]
+                },
+                {
+                  "id": "optional",
+                  "title": "Optional & Null Safety",
+                  "description": "Optional creation, map/flatMap/filter, orElse/orElseGet/orElseThrow, and anti-patterns to avoid.",
+                  "tags": ["functional"]
+                },
+                {
+                  "id": "records",
+                  "title": "Records",
+                  "description": "Compact data carriers, canonical constructors, compact constructors, record patterns, and records vs classes.",
+                  "tags": ["modern"],
+                  "javaVersion": "16+"
+                },
+                {
+                  "id": "sealed-classes",
+                  "title": "Sealed Classes & Interfaces",
+                  "description": "Restricting hierarchies with permits, sealed interfaces, pattern matching integration, and domain modeling.",
+                  "tags": ["modern"],
+                  "javaVersion": "17+"
+                },
+                {
+                  "id": "pattern-matching",
+                  "title": "Pattern Matching",
+                  "description": "instanceof patterns, switch patterns, record patterns, guarded patterns, and exhaustive handling.",
+                  "tags": ["modern"],
+                  "javaVersion": "21"
+                },
+                {
+                  "id": "sequenced-collections",
+                  "title": "Sequenced Collections (Java 21)",
+                  "description": "SequencedCollection, SequencedMap, first/last access, and reversed views in the collections framework.",
+                  "tags": ["modern", "collections"],
+                  "javaVersion": "21"
+                }
               ]
             },
             {
-              "id": "encapsulation",
-              "title": "Encapsulation & Access Modifiers",
-              "description": "private, public, protected, default access. Getters/setters, immutability, and data hiding.",
-              "tags": [
-                "oop"
+              "id": "concurrency",
+              "title": "Concurrency & Parallelism",
+              "description": "Threads to virtual threads — professional concurrent programming",
+              "topics": [
+                {
+                  "id": "concurrency-basics",
+                  "title": "Concurrency Fundamentals",
+                  "description": "Threads, Runnable/Callable, ExecutorService, synchronized, volatile, atomic classes, and thread safety.",
+                  "tags": ["concurrency"]
+                },
+                {
+                  "id": "java-memory-model",
+                  "title": "Java Memory Model & Happens-Before",
+                  "description": "Visibility, ordering guarantees, happens-before rules, and why synchronized/volatile matter in production.",
+                  "tags": ["concurrency", "professional"]
+                },
+                {
+                  "id": "threadlocal-pitfalls",
+                  "title": "ThreadLocal & Concurrency Pitfalls",
+                  "description": "ThreadLocal usage, memory leaks in thread pools, deadlock, livelock, and common concurrency bugs.",
+                  "tags": ["concurrency", "professional"]
+                },
+                {
+                  "id": "fork-join",
+                  "title": "Fork/Join Framework",
+                  "description": "RecursiveTask, work-stealing algorithm, parallel decomposition, and when fork/join beats ExecutorService.",
+                  "tags": ["concurrency"]
+                },
+                {
+                  "id": "virtual-threads",
+                  "title": "Virtual Threads (Project Loom)",
+                  "description": "Thread.ofVirtual(), carrier threads, pinning pitfalls, structured style, and when to prefer virtual threads.",
+                  "tags": ["concurrency", "modern"],
+                  "javaVersion": "21"
+                },
+                {
+                  "id": "completable-future",
+                  "title": "CompletableFuture & Async Programming",
+                  "description": "thenApply/thenCompose, combining futures, allOf/anyOf, exception handling, and async pipeline design.",
+                  "tags": ["concurrency"]
+                },
+                {
+                  "id": "structured-concurrency",
+                  "title": "Structured Concurrency & Scoped Values",
+                  "description": "StructuredTaskScope, scoped values for context propagation, and modern concurrent API design.",
+                  "tags": ["concurrency", "modern"],
+                  "javaVersion": "21+"
+                }
               ]
             },
             {
-              "id": "inheritance",
-              "title": "Inheritance",
-              "description": "extends keyword, method overriding, super keyword, Object class, and composition vs inheritance.",
-              "tags": [
-                "oop"
+              "id": "data-build",
+              "title": "Database, I/O & Build Tools",
+              "description": "Persistence, networking I/O, and project tooling at professional level",
+              "topics": [
+                {
+                  "id": "jdbc",
+                  "title": "JDBC & Database Access",
+                  "description": "DriverManager, Connection, PreparedStatement, ResultSet, transactions, HikariCP pooling, and JPA intro.",
+                  "tags": ["database"]
+                },
+                {
+                  "id": "logging",
+                  "title": "Logging Frameworks",
+                  "description": "SLF4J facade, Logback/Log4j2 config, log levels, structured logging, MDC, and production log hygiene.",
+                  "tags": ["tools"]
+                },
+                {
+                  "id": "build-tools",
+                  "title": "Maven & Gradle",
+                  "description": "Project structure, POM/build.gradle, dependencies, lifecycle phases, plugins, multi-module, and BOMs.",
+                  "tags": ["tools"]
+                },
+                {
+                  "id": "nio-channels",
+                  "title": "NIO.2 Channels & Buffers",
+                  "description": "ByteBuffer, FileChannel, non-blocking I/O, Selector, and high-performance file/network operations.",
+                  "tags": ["io", "professional"]
+                },
+                {
+                  "id": "jpms-deep",
+                  "title": "Java Platform Modules (JPMS) Deep Dive",
+                  "description": "module-info.java, exports/opens/requires, module path vs classpath, and modular application design.",
+                  "tags": ["architecture", "professional"]
+                },
+                {
+                  "id": "jdbc-transactions",
+                  "title": "JDBC Transactions & Isolation",
+                  "description": "commit, rollback, isolation levels, and transactional boundaries with JDBC and connection pools.",
+                  "tags": ["database"]
+                },
+                {
+                  "id": "jpa-hibernate",
+                  "title": "JPA & Hibernate Fundamentals",
+                  "description": "Entity mapping, EntityManager, JPQL, relationships, lazy loading, and Spring Data JPA repositories.",
+                  "tags": ["database", "framework"]
+                }
               ]
             },
             {
-              "id": "polymorphism",
-              "title": "Polymorphism",
-              "description": "Runtime polymorphism, upcasting/downcasting, instanceof operator, and dynamic method dispatch.",
-              "tags": [
-                "oop"
+              "id": "enterprise-integration",
+              "title": "Enterprise Integration",
+              "description": "Messaging, RPC, real-time channels, and fault tolerance in distributed Java systems",
+              "topics": [
+                {
+                  "id": "kafka-messaging",
+                  "title": "Kafka & Event Messaging",
+                  "description": "Producers, consumers, consumer groups, offsets, and Spring Kafka integration.",
+                  "tags": ["architecture", "messaging"]
+                },
+                {
+                  "id": "grpc-protobuf",
+                  "title": "gRPC & Protocol Buffers",
+                  "description": "Contract-first RPC, .proto files, generated stubs, streaming, and deadlines.",
+                  "tags": ["web", "architecture"]
+                },
+                {
+                  "id": "websockets-java",
+                  "title": "WebSockets in Java",
+                  "description": "Jakarta WebSocket endpoints, Spring STOMP, push notifications, and session management.",
+                  "tags": ["web"]
+                },
+                {
+                  "id": "resilience4j",
+                  "title": "Resilience4j & Circuit Breakers",
+                  "description": "Circuit breaker, retry, rate limiter, bulkhead patterns for fault-tolerant microservices.",
+                  "tags": ["architecture", "professional"]
+                }
               ]
             },
             {
-              "id": "abstraction",
-              "title": "Abstraction",
-              "description": "Abstract classes vs interfaces, default and static interface methods, and designing clean APIs.",
-              "tags": [
-                "oop"
-              ]
-            },
-            {
-              "id": "interfaces",
-              "title": "Interfaces & Functional Interfaces",
-              "description": "Interface contracts, multiple inheritance via interfaces, sealed interfaces (Java 17+), and @FunctionalInterface.",
-              "tags": [
-                "oop"
-              ],
-              "javaVersion": "17+"
-            },
-            {
-              "id": "enums",
-              "title": "Enums",
-              "description": "Type-safe constants, enum methods, enum with fields/constructors, and EnumSet/EnumMap.",
-              "tags": [
-                "oop"
-              ]
-            },
-            {
-              "id": "exception-handling",
-              "title": "Exception Handling",
-              "description": "try/catch/finally, checked vs unchecked exceptions, custom exceptions, try-with-resources, and best practices.",
-              "tags": [
-                "error-handling"
-              ]
-            },
-            {
-              "id": "collections",
-              "title": "Collections Framework",
-              "description": "List, Set, Map, Queue interfaces. ArrayList, LinkedList, HashSet, TreeSet, HashMap, TreeMap, and choosing the right collection.",
-              "tags": [
-                "collections"
-              ]
-            },
-            {
-              "id": "generics-basics",
-              "title": "Generics Basics",
-              "description": "Generic classes, methods, bounded type parameters, wildcards (? extends, ? super), and type erasure.",
-              "tags": [
-                "generics"
-              ]
-            },
-            {
-              "id": "file-io",
-              "title": "File I/O",
-              "description": "File class, reading/writing with BufferedReader/Writer, NIO.2 Path and Files API, and serialization basics.",
-              "tags": [
-                "io"
-              ]
-            },
-            {
-              "id": "date-time",
-              "title": "Date & Time API",
-              "description": "java.time package: LocalDate, LocalTime, LocalDateTime, ZonedDateTime, Duration, Period, and DateTimeFormatter.",
-              "tags": [
-                "api"
-              ]
-            },
-            {
-              "id": "packages-modules",
-              "title": "Packages & Module Basics",
-              "description": "Package declaration, imports, classpath, JAR files, and introduction to the Java Platform Module System (JPMS).",
-              "tags": [
-                "architecture"
-              ]
-            },
-            {
-              "id": "static-nested",
-              "title": "Static, Nested & Inner Classes",
-              "description": "Static members, static blocks, inner classes, anonymous classes, and local classes.",
-              "tags": [
-                "oop"
-              ]
-            },
-            {
-              "id": "junit-basics",
-              "title": "Unit Testing with JUnit 5",
-              "description": "Writing test cases, assertions, @BeforeEach/@AfterEach, parameterized tests, and test-driven development basics.",
-              "tags": [
-                "testing"
-              ]
-            }
-          ]
-        },
-        {
-          "id": "advanced",
-          "title": "Advanced",
-          "description": "Modern features — master the Java ecosystem",
-          "topics": [
-            {
-              "id": "lambda-expressions",
-              "title": "Lambda Expressions",
-              "description": "Functional programming in Java, lambda syntax, variable capture, and when to use lambdas over anonymous classes.",
-              "tags": [
-                "functional"
-              ]
-            },
-            {
-              "id": "stream-api",
-              "title": "Stream API",
-              "description": "Intermediate and terminal operations, map/filter/reduce, collectors, parallel streams, and primitive streams.",
-              "tags": [
-                "functional"
-              ]
-            },
-            {
-              "id": "optional",
-              "title": "Optional & Null Safety",
-              "description": "Avoiding NullPointerException, Optional creation and chaining, orElse/orElseGet, and anti-patterns to avoid.",
-              "tags": [
-                "functional"
-              ]
-            },
-            {
-              "id": "records",
-              "title": "Records",
-              "description": "Compact data carriers, canonical constructors, record patterns, and when to use records vs classes.",
-              "tags": [
-                "modern"
-              ],
-              "javaVersion": "16+"
-            },
-            {
-              "id": "sealed-classes",
-              "title": "Sealed Classes & Interfaces",
-              "description": "Restricting inheritance hierarchies, permits clause, pattern matching integration, and domain modeling.",
-              "tags": [
-                "modern"
-              ],
-              "javaVersion": "17+"
-            },
-            {
-              "id": "pattern-matching",
-              "title": "Pattern Matching",
-              "description": "instanceof patterns, switch patterns (Java 21), record patterns, and guarded patterns for exhaustive handling.",
-              "tags": [
-                "modern"
-              ],
-              "javaVersion": "21"
-            },
-            {
-              "id": "concurrency-basics",
-              "title": "Concurrency Fundamentals",
-              "description": "Threads, Runnable/Callable, ExecutorService, synchronized, volatile, atomic classes, and thread safety.",
-              "tags": [
-                "concurrency"
-              ]
-            },
-            {
-              "id": "virtual-threads",
-              "title": "Virtual Threads (Project Loom)",
-              "description": "Lightweight threads, Thread.ofVirtual(), structured concurrency, and when to prefer virtual over platform threads.",
-              "tags": [
-                "concurrency",
-                "modern"
-              ],
-              "javaVersion": "21"
-            },
-            {
-              "id": "completable-future",
-              "title": "CompletableFuture & Async Programming",
-              "description": "Asynchronous pipelines, thenApply/thenCompose, combining futures, and error handling in async code.",
-              "tags": [
-                "concurrency"
-              ]
-            },
-            {
-              "id": "jdbc",
-              "title": "JDBC & Database Access",
-              "description": "Connecting to databases, PreparedStatement, connection pooling (HikariCP), transactions, and JPA introduction.",
-              "tags": [
-                "database"
-              ]
-            },
-            {
-              "id": "logging",
-              "title": "Logging Frameworks",
-              "description": "SLF4J facade, Logback configuration, log levels, structured logging, and MDC for request tracing.",
-              "tags": [
-                "tools"
-              ]
-            },
-            {
-              "id": "build-tools",
-              "title": "Maven & Gradle",
-              "description": "Project structure, dependencies, lifecycle phases, plugins, multi-module projects, and dependency management.",
-              "tags": [
-                "tools"
-              ]
-            },
-            {
-              "id": "spring-boot",
-              "title": "Spring Boot Fundamentals",
-              "description": "Dependency injection, @RestController, Spring Data JPA, configuration properties, and building REST APIs.",
-              "tags": [
-                "framework"
-              ]
-            },
-            {
-              "id": "rest-apis",
-              "title": "REST API Design",
-              "description": "HTTP methods, status codes, request/response DTOs, validation, exception handlers, and OpenAPI/Swagger.",
-              "tags": [
-                "web"
-              ]
-            },
-            {
-              "id": "reactive-java",
-              "title": "Reactive Programming",
-              "description": "Project Reactor, Mono/Flux, backpressure, WebFlux, and when reactive vs imperative is the right choice.",
-              "tags": [
-                "reactive"
-              ]
-            }
-          ]
-        },
-        {
-          "id": "expert",
-          "title": "Expert",
-          "description": "Deep mastery — JVM internals, architecture & performance",
-          "topics": [
-            {
-              "id": "jvm-architecture",
-              "title": "JVM Architecture & Internals",
-              "description": "Class loading, bytecode, method area, heap structure, stack frames, and the execution engine.",
-              "tags": [
-                "jvm"
-              ]
-            },
-            {
-              "id": "garbage-collection",
-              "title": "Garbage Collection Tuning",
-              "description": "GC algorithms (G1, ZGC, Shenandoah), GC logs analysis, heap sizing, and choosing the right collector for your workload.",
-              "tags": [
-                "jvm",
-                "performance"
-              ]
-            },
-            {
-              "id": "memory-management",
-              "title": "Memory Management & Leaks",
-              "description": "Heap vs stack, off-heap memory, memory leak detection with profilers, and weak/soft/phantom references.",
-              "tags": [
-                "jvm",
-                "performance"
+              "id": "frameworks-web",
+              "title": "Frameworks & Web",
+              "description": "Spring ecosystem and API development for professional backends",
+              "topics": [
+                {
+                  "id": "spring-boot",
+                  "title": "Spring Boot Fundamentals",
+                  "description": "Auto-configuration, dependency injection, @RestController, Spring Data JPA, and building REST APIs.",
+                  "tags": ["framework"]
+                },
+                {
+                  "id": "rest-apis",
+                  "title": "REST API Design",
+                  "description": "HTTP methods, status codes, DTOs, validation (@Valid), exception handlers, versioning, and OpenAPI/Swagger.",
+                  "tags": ["web"]
+                },
+                {
+                  "id": "reactive-java",
+                  "title": "Reactive Programming",
+                  "description": "Project Reactor, Mono/Flux, backpressure, WebFlux, and when reactive beats imperative.",
+                  "tags": ["reactive"]
+                },
+                {
+                  "id": "spring-advanced",
+                  "title": "Spring Advanced Topics",
+                  "description": "Custom auto-configuration, AOP, Spring Cloud, event-driven Spring, and production-ready configurations.",
+                  "tags": ["framework"]
+                },
+                {
+                  "id": "spring-security",
+                  "title": "Spring Security & Authentication",
+                  "description": "SecurityFilterChain, JWT, OAuth2/OIDC, role-based access, CORS, CSRF, and securing REST endpoints.",
+                  "tags": ["framework", "security"]
+                },
+                {
+                  "id": "jakarta-servlet",
+                  "title": "Jakarta Servlet & Filter Chain",
+                  "description": "Servlet lifecycle, HttpServlet, filters, listeners, and how containers dispatch requests.",
+                  "tags": ["web", "framework"]
+                }
               ]
             },
             {
               "id": "jvm-performance",
-              "title": "JVM Performance Optimization",
-              "description": "JIT compilation, escape analysis, inlining, profiling with JFR/async-profiler, and microbenchmarking with JMH.",
-              "tags": [
-                "performance"
+              "title": "JVM & Performance",
+              "description": "Bytecode to tuning — what senior engineers and architects need",
+              "topics": [
+                {
+                  "id": "jvm-architecture",
+                  "title": "JVM Architecture & Internals",
+                  "description": "Class loading (bootstrap/extension/application), bytecode, method area, heap, stack frames, and execution engine.",
+                  "tags": ["jvm"]
+                },
+                {
+                  "id": "garbage-collection",
+                  "title": "Garbage Collection Tuning",
+                  "description": "G1, ZGC, Shenandoah collectors, GC log analysis, heap sizing, and choosing the right collector.",
+                  "tags": ["jvm", "performance"]
+                },
+                {
+                  "id": "memory-management",
+                  "title": "Memory Management & Leaks",
+                  "description": "Heap vs stack vs metaspace, off-heap, leak detection with profilers, weak/soft/phantom references.",
+                  "tags": ["jvm", "performance"]
+                },
+                {
+                  "id": "jvm-performance",
+                  "title": "JVM Performance Optimization",
+                  "description": "JIT compilation, C1/C2 tiers, escape analysis, inlining, JFR, async-profiler, and JMH microbenchmarking.",
+                  "tags": ["performance"]
+                },
+                {
+                  "id": "bytecode-asm",
+                  "title": "Bytecode & ASM Manipulation",
+                  "description": "Reading .class files, bytecode instructions, ASM library, dynamic proxies, and how Spring creates beans.",
+                  "tags": ["jvm", "professional"]
+                },
+                {
+                  "id": "graalvm-native",
+                  "title": "GraalVM & Native Image",
+                  "description": "AOT compilation, faster startup, lower memory, reflection config, and cloud-native Java deployments.",
+                  "tags": ["cloud"]
+                },
+                {
+                  "id": "foreign-memory",
+                  "title": "Foreign Function & Memory API",
+                  "description": "Project Panama: MemorySegment, Arena, downcall/upcall handles, and replacing JNI for native interop.",
+                  "tags": ["modern"],
+                  "javaVersion": "21+"
+                },
+                {
+                  "id": "jvm-cli-tools",
+                  "title": "JVM CLI Tools (jcmd, jstack, jmap)",
+                  "description": "Diagnosing live JVMs with jcmd, thread dumps, heap histograms, and GC statistics.",
+                  "tags": ["jvm", "devops"]
+                },
+                {
+                  "id": "jmx-monitoring",
+                  "title": "JMX & Runtime Monitoring",
+                  "description": "MBeans, MemoryMXBean, exposing metrics, and integrating with observability stacks.",
+                  "tags": ["jvm", "devops"]
+                },
+                {
+                  "id": "jlink-runtimes",
+                  "title": "jlink & Custom Runtimes",
+                  "description": "Building minimal JDK images with jlink, jdeps analysis, and modular deployment.",
+                  "tags": ["jvm", "cloud"]
+                }
               ]
             },
             {
-              "id": "design-patterns",
-              "title": "Design Patterns in Java",
-              "description": "Creational, structural, and behavioral patterns. Singleton, Factory, Builder, Observer, Strategy, and anti-patterns.",
-              "tags": [
-                "architecture"
-              ]
-            },
-            {
-              "id": "solid-principles",
-              "title": "SOLID & Clean Architecture",
-              "description": "Single responsibility, open/closed, Liskov substitution, interface segregation, dependency inversion, and hexagonal architecture.",
-              "tags": [
-                "architecture"
-              ]
-            },
-            {
-              "id": "microservices",
-              "title": "Microservices Architecture",
-              "description": "Service decomposition, API gateways, service discovery, circuit breakers, distributed tracing, and event-driven design.",
-              "tags": [
-                "architecture"
-              ]
-            },
-            {
-              "id": "spring-advanced",
-              "title": "Spring Advanced Topics",
-              "description": "Custom auto-configuration, AOP, Spring Security OAuth2, Spring Cloud, and production-ready configurations.",
-              "tags": [
-                "framework"
-              ]
-            },
-            {
-              "id": "testing-advanced",
-              "title": "Advanced Testing Strategies",
-              "description": "Integration testing with Testcontainers, contract testing (Pact), mutation testing, and test architecture.",
-              "tags": [
-                "testing"
-              ]
-            },
-            {
-              "id": "security",
-              "title": "Java Security Best Practices",
-              "description": "OWASP Top 10, input validation, secure coding, cryptography (JCA), JWT, and secrets management.",
-              "tags": [
-                "security"
-              ]
-            },
-            {
-              "id": "foreign-memory",
-              "title": "Foreign Function & Memory API",
-              "description": "Project Panama — calling native code, MemorySegment, Arena, and replacing JNI for high-performance interop.",
-              "tags": [
-                "modern"
-              ],
-              "javaVersion": "21+"
-            },
-            {
-              "id": "graalvm-native",
-              "title": "GraalVM & Native Image",
-              "description": "Ahead-of-time compilation, faster startup, lower memory footprint, and building cloud-native Java applications.",
-              "tags": [
-                "cloud"
-              ]
-            },
-            {
-              "id": "structured-concurrency",
-              "title": "Structured Concurrency & Scoped Values",
-              "description": "StructuredTaskScope, scoped values for implicit context propagation, and modern concurrent API design.",
-              "tags": [
-                "concurrency",
-                "modern"
-              ],
-              "javaVersion": "21+"
-            },
-            {
-              "id": "observability",
-              "title": "Observability & Monitoring",
-              "description": "Micrometer metrics, OpenTelemetry tracing, health checks, and building observable production systems.",
-              "tags": [
-                "devops"
-              ]
-            },
-            {
-              "id": "java-roadmap",
-              "title": "Java Future Roadmap",
-              "description": "Project Valhalla (value types), Project Babylon (GPU compute), string templates, and staying current with OpenJDK.",
-              "tags": [
-                "modern"
+              "id": "architecture-production",
+              "title": "Architecture & Production",
+              "description": "Design, security, testing, and operating Java at global scale",
+              "topics": [
+                {
+                  "id": "design-patterns",
+                  "title": "Design Patterns in Java",
+                  "description": "Creational, structural, behavioral patterns. Singleton, Factory, Builder, Observer, Strategy, and anti-patterns.",
+                  "tags": ["architecture"]
+                },
+                {
+                  "id": "solid-principles",
+                  "title": "SOLID & Clean Architecture",
+                  "description": "SRP, OCP, LSP, ISP, DIP, hexagonal architecture, ports & adapters, and maintainable system design.",
+                  "tags": ["architecture"]
+                },
+                {
+                  "id": "microservices",
+                  "title": "Microservices Architecture",
+                  "description": "Service decomposition, API gateways, service discovery, circuit breakers, and event-driven microservices.",
+                  "tags": ["architecture"]
+                },
+                {
+                  "id": "distributed-systems",
+                  "title": "Distributed Systems Patterns",
+                  "description": "CAP theorem, eventual consistency, saga patterns, idempotency, distributed locks, and reliability at scale.",
+                  "tags": ["architecture"]
+                },
+                {
+                  "id": "security",
+                  "title": "Java Security Best Practices",
+                  "description": "OWASP Top 10, input validation, secure coding, JCA cryptography, JWT, and secrets management.",
+                  "tags": ["security"]
+                },
+                {
+                  "id": "caching",
+                  "title": "Caching Strategies",
+                  "description": "In-memory (Caffeine), distributed (Redis), cache-aside/write-through, TTL, eviction, and cache invalidation.",
+                  "tags": ["professional"]
+                },
+                {
+                  "id": "testing-advanced",
+                  "title": "Advanced Testing Strategies",
+                  "description": "Testcontainers, contract testing (Pact), mutation testing (PIT), integration test architecture, and CI test gates.",
+                  "tags": ["testing"]
+                },
+                {
+                  "id": "observability",
+                  "title": "Observability & Monitoring",
+                  "description": "Micrometer metrics, OpenTelemetry tracing, health checks, alerting, and building observable production systems.",
+                  "tags": ["devops"]
+                },
+                {
+                  "id": "cicd-containers",
+                  "title": "CI/CD & Containerization for Java",
+                  "description": "Docker images for Java apps, multi-stage builds, GitHub Actions/Jenkins pipelines, and deployment strategies.",
+                  "tags": ["devops", "professional"]
+                },
+                {
+                  "id": "java-roadmap",
+                  "title": "Java Future Roadmap",
+                  "description": "Project Valhalla, Babylon, Leyden, string templates, and staying current with OpenJDK releases.",
+                  "tags": ["modern"]
+                },
+                {
+                  "id": "tls-keystore",
+                  "title": "TLS, SSL & KeyStore",
+                  "description": "KeyStore, TrustStore, SSLContext, certificate rotation, and securing Java HTTP clients and servers.",
+                  "tags": ["security"]
+                },
+                {
+                  "id": "netty-io",
+                  "title": "Netty & High-Performance I/O",
+                  "description": "Event-driven networking, ChannelPipeline, ByteBuf management, and building protocol servers.",
+                  "tags": ["io", "performance"]
+                }
               ]
             }
           ]

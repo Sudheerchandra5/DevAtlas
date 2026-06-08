@@ -15,11 +15,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build site
+        run: npm run build
+
       - name: Prepare static site
         run: |
-          mkdir -p _site
-          cp index.html java.html 404.html favicon.svg .nojekyll _site/
+          mkdir -p _site/js
+          cp index.html java.html 404.html favicon.svg _site/
           cp -r css _site/
+          cp js/visual-scroll.js _site/js/
+          touch _site/.nojekyll
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4

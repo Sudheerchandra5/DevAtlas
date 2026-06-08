@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0f1117" />
-  <meta name="description" content="DevAtlas — Learn programming languages from basics to expert level" />
-  <title>DevAtlas — Learn to Code</title>
+  <meta name="theme-color" content="#f8fafc" />
+  <meta name="description" content="DevAtlas — Structured Core Java and Advanced Java curriculum from fundamentals to professional level." />
+  <title>DevAtlas — Java Learning Platform</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -21,82 +21,96 @@
       </a>
       <nav class="header-nav">
         
-        <a href="java.html">Java</a>
+        <a href="java.html">Java Roadmap</a>
       </nav>
     </header>
     <main class="main">
       <section class="hero">
-        <div class="hero-glow"></div>
         <div class="container">
-          <span class="badge"><span class="badge-dot"></span>Structured learning paths for every level</span>
-          <h1 class="hero-title">Master programming <span class="gradient-text">one language at a time</span></h1>
-          <p class="hero-desc">DevAtlas provides curated, up-to-date learning roadmaps from absolute basics to expert-level concepts. Start your journey today and grow at your own pace.</p>
+          <span class="hero-label">Java Learning Platform</span>
+          <h1 class="hero-title">
+            Master Java with
+            <span class="highlight">Core &amp; Advanced</span>
+            <span class="sub-line">A structured curriculum from first principles to professional-level concepts.</span>
+          </h1>
+          <p class="hero-desc"><strong>DevAtlas</strong> maps Java into two tracks — <strong>Core Java</strong> (66 topics) and <strong>Advanced Java</strong> (55 topics) — 121 concepts total with definitions, syntax, interview prep, and coding test / machine-round practice. Java is vast; this roadmap covers the professional path from first syntax through production systems.</p>
           <div class="hero-actions">
-            <a href="java.html" class="btn btn-primary">Start with Java →</a>
-            <a href="#languages" class="btn btn-secondary">Browse Languages</a>
+            <a href="java.html" class="btn btn-primary">View full roadmap</a>
+            <a href="java.html#core-java" class="btn btn-secondary">Start with Core Java</a>
           </div>
         </div>
       </section>
+
+      <section class="spectrum"><div class="spectrum-track spectrum-track-2"><div class="spectrum-segment seg-core-java">
+        <div class="spectrum-label">Core Java</div>
+        <div class="spectrum-range">Fundamentals to professional core</div>
+      </div><div class="spectrum-segment seg-advanced-java">
+        <div class="spectrum-label">Advanced Java</div>
+        <div class="spectrum-range">Modern features to production systems</div>
+      </div></div></section>
 
       <section class="stats">
         <div class="container stats-grid">
-          <div class="stat"><p class="stat-value">1</p><p class="stat-label">Languages Available</p></div>
-          <div class="stat"><p class="stat-value">57</p><p class="stat-label">Topics Covered</p></div>
-          <div class="stat"><p class="stat-value">4</p><p class="stat-label">Difficulty Levels</p></div>
-          <div class="stat"><p class="stat-value">∞</p><p class="stat-label">More Coming</p></div>
+          <div class="stat"><p class="stat-value">121</p><p class="stat-label">Total topics</p></div>
+          <div class="stat"><p class="stat-value">66</p><p class="stat-label">Core Java</p></div>
+          <div class="stat"><p class="stat-value">55</p><p class="stat-label">Advanced Java</p></div>
+          <div class="stat"><p class="stat-value">21</p><p class="stat-label">JDK LTS</p></div>
         </div>
       </section>
 
-      <section id="languages" class="section">
+      <section class="section">
         <div class="container">
-          <h2 class="section-title">Choose a Language</h2>
-          <p class="section-desc">Pick a language to explore its complete learning roadmap</p>
-          <div class="card-grid">
-            <a href="java.html" class="card card-link">
-              <div class="card-icon java-icon">☕</div>
-              <h3>Java</h3>
-              <p class="card-tagline">Write once, run anywhere</p>
-              <p class="card-desc">Master Java from your first Hello World to JVM tuning and cloud-native architecture. Covers JDK 21 LTS features including virtual threads, records, pattern matching, and the modern Spring ecosystem.</p>
-              <div class="card-meta">
-                <span>57 topics</span>
-                <span>4 levels</span>
-                <span class="card-badge">JDK 21 LTS</span>
-              </div>
-              <span class="card-cta">Start Learning →</span>
-            </a>
-            <div class="card card-placeholder">
-              <div class="card-icon">➕</div>
-              <h3>More Languages</h3>
-              <p class="card-desc">Python, JavaScript, TypeScript, Go, Rust, and more are on the way</p>
-            </div>
+          <div class="section-head">
+            <span class="section-tag">Curriculum</span>
+            <h2 class="section-title">Two structured learning tracks</h2>
+            <p class="section-desc">Each track progresses from foundational concepts to professional-level topics. Begin with Core Java, then advance when you're ready for concurrency, frameworks, and systems design.</p>
           </div>
+          <div class="track-grid"><a href="java.html#core-java" class="track-card track-core-java">
+          <span class="track-label">Core Java</span>
+          <span class="track-count">66 topics · 9 modules</span>
+          <p class="track-desc">Language fundamentals every Java developer must know — from absolute zero through OOP, collections, I/O, and professional-grade core skills used in production code daily.</p>
+          <span class="track-cta">View Core Java →</span>
+        </a><a href="java.html#advanced-java" class="track-card track-advanced-java">
+          <span class="track-label">Advanced Java</span>
+          <span class="track-count">55 topics · 7 modules</span>
+          <p class="track-desc">Modern language features, concurrency, JVM mastery, frameworks, and production systems — from first lambda to senior engineer level.</p>
+          <span class="track-cta">View Advanced Java →</span>
+        </a></div>
         </div>
       </section>
 
       <section class="section section-alt">
         <div class="container">
-          <h2 class="section-title">How DevAtlas Works</h2>
-          <div class="steps-grid">
-            <div class="step"><span class="step-num">01</span><h3>Pick a Language</h3><p>Choose from our growing catalog of programming languages, each with a structured curriculum.</p></div>
-            <div class="step"><span class="step-num">02</span><h3>Follow the Roadmap</h3><p>Progress through Beginner → Intermediate → Advanced → Expert levels at your own pace.</p></div>
-            <div class="step"><span class="step-num">03</span><h3>Master Every Concept</h3><p>Each topic covers modern, up-to-date features so you learn what the industry actually uses.</p></div>
+          <div class="section-head">
+            <span class="section-tag">Why DevAtlas</span>
+            <h2 class="section-title">Complete coverage, clearly organized</h2>
+          </div>
+          <div class="pillars">
+            <div class="pillar">
+              <div class="pillar-num">01 — Core Java</div>
+              <h3>Foundations to professional core</h3>
+              <p>Variables, OOP, collections, generics, I/O, testing, and the practices every Java developer needs in day-to-day work.</p>
+            </div>
+            <div class="pillar">
+              <div class="pillar-num">02 — Advanced Java</div>
+              <h3>Modern Java to production</h3>
+              <p>Lambdas, virtual threads, Spring, JVM tuning, microservices, security, and observability for senior-level work.</p>
+            </div>
+            <div class="pillar">
+              <div class="pillar-num">03 — Accessible</div>
+              <h3>Free and self-paced</h3>
+              <p>No sign-up required. Learn at your own pace on any device, anywhere in the world.</p>
+            </div>
           </div>
         </div>
       </section>
     </main>
     <footer class="footer">
-      <p>DevAtlas — Learn on any device</p>
+      <div class="footer-inner">
+        <span class="footer-brand">DevAtlas</span>
+        <p>Structured Java learning — Core Java &amp; Advanced Java — free for everyone</p>
+      </div>
     </footer>
-    <nav class="mobile-nav" aria-label="Mobile navigation">
-      <a href="index.html" class="mobile-nav-item active">
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        Home
-      </a>
-      <a href="java.html" class="mobile-nav-item">
-        <span class="mobile-nav-icon">☕</span>
-        Java
-      </a>
-    </nav>
   </div>
 </body>
 </html>
