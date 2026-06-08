@@ -2,79 +2,44 @@
 
 A professional learning platform for mastering programming languages — from absolute basics to expert-level concepts.
 
-## Features
+Built with **pure HTML and CSS** — no JavaScript framework required.
 
-- **Structured roadmaps** — Each language is organized into Beginner, Intermediate, Advanced, and Expert levels
-- **Up-to-date content** — Java curriculum covers JDK 21 LTS features (virtual threads, records, pattern matching, and more)
-- **Extensible architecture** — Add new languages by editing a single data file
-- **Modern UI** — Dark-themed, responsive design built with React and Tailwind CSS
-
-## Getting Started
-
-```bash
-git checkout cursor/java-learning-ui-d938   # if not already on this branch
-npm install
-npm run dev
-```
-
-Open **http://localhost:5173** in your browser.
-
-## Use on mobile
-
-Open this link in your phone browser (Chrome, Safari, etc.):
+## Live site
 
 **https://sudheerchandra5.github.io/DevAtlas/**
 
-Direct link to Java: **https://sudheerchandra5.github.io/DevAtlas/#/learn/java**
+- Home: `index.html`
+- Java: `java.html`
 
-> **One-time setup (repo owner):** GitHub → **Settings → Pages → Source** → select branch **`gh-pages`** → folder **`/ (root)`** → Save. The site deploys automatically on every push to `main`.
+## Project structure
 
-The app includes a mobile bottom navigation bar (Home / Java) and touch-friendly layout.
+```
+index.html          Home page
+java.html           Java curriculum (57 topics)
+css/style.css       All styles
+data/languages.json Curriculum data
+scripts/generate.mjs Regenerate HTML when adding languages
+favicon.svg         Site icon
+```
 
-> **Note:** `localhost` only works on the same computer running the dev server — it won't open on your phone unless you're on the same Wi‑Fi and use your computer's local IP.
+## View locally
+
+Open `index.html` in your browser, or run a simple server:
 
 ```bash
-npm run build
-npm run preview
+python3 -m http.server 8080
 ```
 
-Open **http://localhost:4173**
+Then visit **http://localhost:8080**
 
-## Adding a New Language
+## Add a new language
 
-Edit `src/data/languages.ts` and add a new entry to the `languages` array:
+1. Add language data to `data/languages.json`
+2. Update `scripts/generate.mjs` to generate the new HTML page
+3. Run `node scripts/generate.mjs`
+4. Push to `main` — GitHub Actions deploys automatically
 
-```typescript
-{
-  id: 'python',
-  name: 'Python',
-  tagline: 'Simple, readable, powerful',
-  description: '...',
-  icon: '🐍',
-  color: '#3776ab',
-  gradient: 'from-blue-500/20 via-yellow-500/10 to-blue-600/20',
-  currentVersion: 'Python 3.12',
-  available: true,
-  sections: [
-    {
-      id: 'beginner',
-      title: 'Beginner',
-      description: '...',
-      topics: [ /* ... */ ],
-    },
-    // intermediate, advanced, expert sections...
-  ],
-}
-```
-
-## Tech Stack
-
-- [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- [Vite](https://vite.dev/) for fast development and builds
-- [Tailwind CSS 4](https://tailwindcss.com/) for styling
-- [React Router](https://reactrouter.com/) for navigation
-
-## Java Curriculum
+## Java curriculum
 
 | Level | Topics | Highlights |
 |-------|--------|------------|

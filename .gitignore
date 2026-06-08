@@ -1,29 +1,4 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-
-# Dependencies
-node_modules
-
-# Build
-dist
-dist-ssr
-
-# Editor
-.vscode/*
-!.vscode/extensions.json
-.idea
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Env
-*.local
-.env
-
-# TypeScript
+node_modules/
+dist/
+.vite/
 *.tsbuildinfo

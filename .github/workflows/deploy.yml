@@ -15,21 +15,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build for GitHub Pages
-        run: npm run build:pages
+      - name: Prepare static site
+        run: |
+          mkdir -p _site
+          cp index.html java.html 404.html favicon.svg .nojekyll _site/
+          cp -r css _site/
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./_site
           force_orphan: true
