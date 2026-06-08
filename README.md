@@ -12,11 +12,31 @@ A professional learning platform for mastering programming languages — from ab
 ## Getting Started
 
 ```bash
+git checkout cursor/java-learning-ui-d938   # if not already on this branch
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open **http://localhost:5173** in your browser.
+
+> **Note:** The app code is on the `cursor/java-learning-ui-d938` branch. Run the commands above from that branch.
+
+## Live Demo
+
+After GitHub Pages is enabled, the app is available at:
+
+**https://sudheerchandra5.github.io/DevAtlas/**
+
+To enable GitHub Pages: go to repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+
+## Production Preview
+
+```bash
+npm run build
+npm run preview
+```
+
+Open **http://localhost:4173**
 
 ## Adding a New Language
 
