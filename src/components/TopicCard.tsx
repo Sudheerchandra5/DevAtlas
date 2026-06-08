@@ -25,7 +25,7 @@ export default function TopicCard({ topic, index, level }: TopicCardProps) {
           <h3 className="font-semibold text-text-primary group-hover:text-white transition-colors">
             {topic.title}
           </h3>
-          <p className="mt-1.5 text-sm text-text-secondary leading-relaxed line-clamp-3">
+          <p className="mt-1.5 text-sm text-text-secondary leading-relaxed sm:line-clamp-3">
             {topic.description}
           </p>
 

@@ -15,30 +15,30 @@ export default function HomePage() {
         <div className="absolute top-20 left-1/4 h-72 w-72 rounded-full bg-accent/5 blur-3xl animate-pulse-glow" />
         <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-violet-500/5 blur-3xl animate-pulse-glow" />
 
-        <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:py-20 lg:py-28 sm:px-6 lg:px-8">
           <div className="max-w-3xl animate-fade-in">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface-overlay px-4 py-1.5 text-sm text-text-secondary">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              Structured learning paths for every level
+            <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface-overlay px-3 py-1.5 sm:px-4 text-xs sm:text-sm text-text-secondary">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 shrink-0" />
+              <span>Structured learning paths for every level</span>
             </div>
 
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl leading-tight">
               Master programming
               <span className="block bg-gradient-to-r from-accent to-violet-400 bg-clip-text text-transparent">
                 one language at a time
               </span>
             </h1>
 
-            <p className="mt-6 text-lg text-text-secondary leading-relaxed max-w-2xl">
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-text-secondary leading-relaxed max-w-2xl">
               DevAtlas provides curated, up-to-date learning roadmaps from absolute basics
               to expert-level concepts. Start your journey today and grow at your own pace.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
               {languages.find((l) => l.available) && (
                 <Link
                   to={`/learn/${languages.find((l) => l.available)!.id}`}
-                  className="inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/25"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3.5 min-h-[48px] text-sm font-semibold text-white active:bg-accent-hover sm:hover:bg-accent-hover"
                 >
                   Start with Java
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -48,7 +48,7 @@ export default function HomePage() {
               )}
               <a
                 href="#languages"
-                className="inline-flex items-center gap-2 rounded-xl border border-border bg-surface-overlay px-6 py-3 text-sm font-semibold text-text-primary transition-all hover:border-accent/50 hover:bg-surface-raised"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-surface-overlay px-6 py-3.5 min-h-[48px] text-sm font-semibold text-text-primary active:bg-surface-raised sm:hover:border-accent/50"
               >
                 Browse Languages
               </a>
@@ -59,8 +59,8 @@ export default function HomePage() {
 
       {/* Stats */}
       <section className="border-y border-border-subtle bg-surface-raised">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:py-10 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 gap-6 sm:gap-8 sm:grid-cols-4">
             <Stat value={String(availableCount)} label="Languages Available" />
             <Stat
               value={String(
@@ -75,7 +75,7 @@ export default function HomePage() {
       </section>
 
       {/* Languages Grid */}
-      <section id="languages" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <section id="languages" className="mx-auto max-w-7xl px-4 py-12 sm:py-16 sm:px-6 lg:px-8">
         <div className="mb-10">
           <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Choose a Language</h2>
           <p className="mt-2 text-text-secondary">
@@ -131,8 +131,8 @@ export default function HomePage() {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="text-center sm:text-left">
-      <p className="text-3xl font-bold text-text-primary">{value}</p>
-      <p className="mt-1 text-sm text-text-muted">{label}</p>
+      <p className="text-2xl sm:text-3xl font-bold text-text-primary">{value}</p>
+      <p className="mt-1 text-xs sm:text-sm text-text-muted">{label}</p>
     </div>
   );
 }

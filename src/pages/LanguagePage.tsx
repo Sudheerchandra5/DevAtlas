@@ -19,10 +19,10 @@ export default function LanguagePage() {
       {/* Language Hero */}
       <section className={`relative overflow-hidden border-b border-border-subtle`}>
         <div className={`absolute inset-0 bg-gradient-to-br ${language.gradient} opacity-50`} />
-        <div className="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
           <Link
             to="/"
-            className="mb-6 inline-flex items-center gap-1.5 text-sm text-text-muted transition-colors hover:text-text-primary"
+            className="mb-4 sm:mb-6 inline-flex items-center gap-1.5 text-sm text-text-muted min-h-[44px] active:text-text-primary"
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -30,32 +30,29 @@ export default function LanguagePage() {
             All Languages
           </Link>
 
-          <div className="flex flex-col sm:flex-row sm:items-start gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
             <div
-              className={`flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${language.gradient} text-5xl`}
+              className={`flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br ${language.gradient} text-4xl sm:text-5xl`}
             >
               {language.icon}
             </div>
 
-            <div className="flex-1">
-              <div className="flex flex-wrap items-center gap-3">
-                <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{language.name}</h1>
-                <span className="rounded-full bg-surface-overlay px-3 py-1 font-mono text-xs text-accent border border-accent/20">
+            <div className="flex-1 min-w-0">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                <h1 className="text-2xl font-bold tracking-tight sm:text-4xl">{language.name}</h1>
+                <span className="rounded-full bg-surface-overlay px-2.5 py-1 font-mono text-[10px] sm:text-xs text-accent border border-accent/20">
                   {language.currentVersion}
                 </span>
               </div>
-              <p className="mt-1 text-text-muted italic">{language.tagline}</p>
-              <p className="mt-4 max-w-3xl text-text-secondary leading-relaxed">
+              <p className="mt-1 text-sm text-text-muted italic">{language.tagline}</p>
+              <p className="mt-3 sm:mt-4 text-sm sm:text-base text-text-secondary leading-relaxed">
                 {language.description}
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-6 text-sm">
-                <MetaItem label="Total Topics" value={String(totalTopics)} />
+              <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-6 text-xs sm:text-sm">
+                <MetaItem label="Topics" value={String(totalTopics)} />
                 <MetaItem label="Levels" value={String(language.sections.length)} />
-                <MetaItem
-                  label="Difficulty Range"
-                  value="Beginner → Expert"
-                />
+                <MetaItem label="Range" value="Beginner → Expert" />
               </div>
             </div>
           </div>
@@ -63,19 +60,19 @@ export default function LanguagePage() {
       </section>
 
       {/* Level Navigation */}
-      <nav className="sticky top-16 z-40 border-b border-border-subtle bg-surface/90 backdrop-blur-xl">
+      <nav className="sticky top-[calc(3.5rem+env(safe-area-inset-top))] sm:top-16 z-40 border-b border-border-subtle bg-surface/95 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex gap-1 overflow-x-auto py-3 scrollbar-none">
+          <div className="flex gap-2 overflow-x-auto py-3 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory scrollbar-none">
             {language.sections.map((section) => {
               const config = difficultyConfig[section.id as DifficultyLevel];
               return (
                 <a
                   key={section.id}
                   href={`#${section.id}`}
-                  className={`shrink-0 rounded-lg px-4 py-2 text-sm font-medium transition-colors hover:bg-surface-overlay ${config?.color ?? 'text-text-secondary'}`}
+                  className={`snap-start shrink-0 rounded-full px-4 py-2.5 min-h-[44px] flex items-center text-sm font-medium active:bg-surface-overlay sm:hover:bg-surface-overlay ${config?.color ?? 'text-text-secondary'}`}
                 >
                   {section.title}
-                  <span className="ml-2 text-text-muted">({section.topics.length})</span>
+                  <span className="ml-1.5 text-text-muted text-xs">({section.topics.length})</span>
                 </a>
               );
             })}
@@ -84,9 +81,9 @@ export default function LanguagePage() {
       </nav>
 
       {/* Curriculum Sections */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:py-12 sm:px-6 lg:px-8">
         {/* Progress Overview */}
-        <div className="mb-12 rounded-2xl border border-border bg-surface-raised p-6">
+        <div className="mb-8 sm:mb-12 rounded-2xl border border-border bg-surface-raised p-4 sm:p-6">
           <h2 className="text-lg font-semibold mb-4">Curriculum Overview</h2>
           <div className="space-y-4">
             {language.sections.map((section, index) => {
@@ -131,20 +128,20 @@ export default function LanguagePage() {
           const config = difficultyConfig[level];
 
           return (
-            <section key={section.id} id={section.id} className="mb-16 scroll-mt-36">
-              <div className="mb-6 flex items-start gap-4">
+            <section key={section.id} id={section.id} className="mb-12 sm:mb-16 scroll-mt-[calc(7.5rem+env(safe-area-inset-top))] sm:scroll-mt-36">
+              <div className="mb-5 sm:mb-6 flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-4">
                 <div
-                  className={`shrink-0 rounded-xl border px-3 py-1.5 text-xs font-semibold uppercase tracking-wider ${config.bg} ${config.color} ${config.border}`}
+                  className={`self-start rounded-xl border px-3 py-1.5 text-xs font-semibold uppercase tracking-wider ${config.bg} ${config.color} ${config.border}`}
                 >
                   {config.label}
                 </div>
-                <div>
-                  <h2 className="text-2xl font-bold">{section.title} Level</h2>
-                  <p className="mt-1 text-text-secondary">{section.description}</p>
+                <div className="min-w-0">
+                  <h2 className="text-xl sm:text-2xl font-bold">{section.title} Level</h2>
+                  <p className="mt-1 text-sm text-text-secondary">{section.description}</p>
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {section.topics.map((topic, topicIndex) => (
                   <TopicCard
                     key={topic.id}
@@ -159,33 +156,31 @@ export default function LanguagePage() {
         })}
 
         {/* Level progression visual */}
-        <div className="mt-8 rounded-2xl border border-border bg-surface-raised p-8">
-          <h3 className="text-lg font-semibold mb-6 text-center">Your Learning Path</h3>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-0">
+        <div className="mt-8 rounded-2xl border border-border bg-surface-raised p-5 sm:p-8">
+          <h3 className="text-base sm:text-lg font-semibold mb-5 sm:mb-6 text-center">Your Learning Path</h3>
+          <div className="space-y-3 sm:space-y-0 sm:flex sm:items-center sm:justify-center">
             {difficultyOrder.map((level, index) => {
               const config = difficultyConfig[level];
               const section = language.sections.find((s) => s.id === level);
               return (
-                <div key={level} className="flex items-center">
-                  <div className="flex flex-col items-center">
+                <div key={level} className="flex items-center sm:contents">
+                  <div className="flex flex-1 items-center gap-3 rounded-xl bg-surface-overlay/40 p-3 sm:flex-col sm:rounded-none sm:bg-transparent sm:p-0">
                     <div
-                      className={`flex h-12 w-12 items-center justify-center rounded-full border-2 ${config.border} ${config.bg}`}
+                      className={`flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full border-2 ${config.border} ${config.bg}`}
                     >
-                      <span className={`text-sm font-bold ${config.color}`}>
-                        {index + 1}
-                      </span>
+                      <span className={`text-sm font-bold ${config.color}`}>{index + 1}</span>
                     </div>
-                    <span className={`mt-2 text-xs font-medium ${config.color}`}>
-                      {config.label}
-                    </span>
-                    {section && (
-                      <span className="text-[10px] text-text-muted mt-0.5">
-                        {section.topics.length} topics
-                      </span>
-                    )}
+                    <div className="sm:text-center">
+                      <span className={`text-sm font-medium ${config.color}`}>{config.label}</span>
+                      {section && (
+                        <span className="block text-xs text-text-muted mt-0.5">
+                          {section.topics.length} topics
+                        </span>
+                      )}
+                    </div>
                   </div>
                   {index < difficultyOrder.length - 1 && (
-                    <div className="hidden sm:block w-16 lg:w-24 h-px bg-border mx-2" />
+                    <div className="hidden sm:block w-16 lg:w-24 h-px bg-border mx-2 shrink-0" />
                   )}
                 </div>
               );

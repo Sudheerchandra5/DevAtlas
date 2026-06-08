@@ -57,11 +57,8 @@ export default function LanguageCard({ language }: LanguageCardProps) {
       </div>
 
       {language.available && (
-        <div className="mt-4 flex items-center gap-1 text-sm font-medium text-accent opacity-0 transition-opacity group-hover:opacity-100">
-          Start Learning
-          <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
+        <div className="mt-4 flex items-center gap-1 text-sm font-medium text-accent sm:opacity-0 sm:transition-opacity sm:group-hover:opacity-100">
+          Start Learning →
         </div>
       )}
     </div>

@@ -19,17 +19,19 @@ npm run dev
 
 Open **http://localhost:5173** in your browser.
 
-> **Note:** The app code is on the `cursor/java-learning-ui-d938` branch. Run the commands above from that branch.
+## Use on mobile
 
-## Live Demo
-
-After GitHub Pages is enabled, the app is available at:
+Open this link in your phone browser (Chrome, Safari, etc.):
 
 **https://sudheerchandra5.github.io/DevAtlas/**
 
-To enable GitHub Pages: go to repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+Direct link to Java: **https://sudheerchandra5.github.io/DevAtlas/#/learn/java**
 
-## Production Preview
+> **One-time setup (repo owner):** GitHub → **Settings → Pages → Source** → select branch **`gh-pages`** → folder **`/ (root)`** → Save. The site deploys automatically on every push to `main`.
+
+The app includes a mobile bottom navigation bar (Home / Java) and touch-friendly layout.
+
+> **Note:** `localhost` only works on the same computer running the dev server — it won't open on your phone unless you're on the same Wi‑Fi and use your computer's local IP.
 
 ```bash
 npm run build
