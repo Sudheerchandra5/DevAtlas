@@ -1,52 +1,35 @@
 # DevAtlas
 
-A professional learning platform for mastering programming languages — from absolute basics to expert-level concepts.
-
-Built with **pure HTML and CSS** — no JavaScript framework required.
+Java learning platform — static HTML/CSS, Node build scripts, GSAP visuals.
 
 ## Live site
 
 **https://sudheerchandra5.github.io/DevAtlas/**
 
-- Home: `index.html`
-- Java: `java.html`
-
-## Project structure
+## Structure
 
 ```
-index.html          Home page
-java.html           Java curriculum (57 topics)
-css/style.css       All styles
-data/languages.json Curriculum data
-scripts/generate.mjs Regenerate HTML when adding languages
-favicon.svg         Site icon
+index.html, java.html       Generated pages
+css/style.css
+data/languages.json
+
+js/
+  visual-premium.js         GSAP animation player (browser)
+
+mjs/                        Build modules
+  generate.mjs              Entry — npm run build
+  render.mjs, paths.mjs
+  java-topics.mjs, core-part1.mjs … gaps.mjs
+  interview.mjs, coding-test.mjs, puzzles.mjs
+  topic-visuals.mjs, gsap-visual.mjs, visual-flow.mjs
 ```
 
-## View locally
-
-Open `index.html` in your browser, or run a simple server:
+## Build & run
 
 ```bash
-python3 -m http.server 8080
+npm run build
+python -m http.server 8080
 ```
-
-Then visit **http://localhost:8080**
-
-## Add a new language
-
-1. Add language data to `data/languages.json`
-2. Update `scripts/generate.mjs` to generate the new HTML page
-3. Run `node scripts/generate.mjs`
-4. Push to `main` — GitHub Actions deploys automatically
-
-## Java curriculum
-
-| Level | Topics | Highlights |
-|-------|--------|------------|
-| Beginner | 12 | Variables, control flow, methods, I/O |
-| Intermediate | 15 | OOP, collections, generics, JUnit |
-| Advanced | 15 | Lambdas, streams, virtual threads, Spring Boot |
-| Expert | 15 | JVM tuning, design patterns, GraalVM, observability |
 
 ## License
 
